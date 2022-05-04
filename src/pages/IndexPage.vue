@@ -123,8 +123,8 @@ import {
   updateUser,
   addUser,
 } from '../boot/axios';
-import { computed, defineComponent, ref, onMounted, reactive } from 'vue';
-import { QInput, useQuasar, Notify } from 'quasar';
+import { ref, onMounted } from 'vue';
+import { useQuasar } from 'quasar';
 
 const columns = [
   {
@@ -132,35 +132,30 @@ const columns = [
     align: 'center',
     label: 'Id',
     field: 'id',
-    sortable: true,
   },
   {
     name: 'title',
     align: 'left',
     label: 'Title',
     field: 'title',
-    sortable: true,
   },
   {
     name: 'firstName',
     align: 'left',
     label: 'First Name',
     field: 'firstName',
-    sortable: true,
   },
   {
     name: 'lastName',
     align: 'left',
     label: 'Last Name',
     field: 'lastName',
-    sortable: true,
   },
   {
     name: 'picture',
     align: 'left',
     label: 'Pic URL',
     field: 'picture',
-    sortable: true,
   },
   { name: 'action', label: 'Delete', field: 'action' },
   { name: 'view', label: 'Update', field: 'view' },
@@ -263,6 +258,7 @@ async function updateUserData() {
   }
 }
 function addUserModal() {
+  //MODALI BOŞALTIP TYPE DEĞİŞİYORUZ
   userDetail.value = [];
   modalType.value = 'Add';
   fixed.value = true;
