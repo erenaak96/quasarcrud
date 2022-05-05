@@ -26,7 +26,6 @@
             <q-input
               class="col-6 q-ml-sm"
               rounded
-              autofocus
               outlined
               dense
               v-model="userDetail.lastName"
@@ -49,7 +48,6 @@
             <q-input
               class="col-6 q-ml-sm"
               rounded
-              autofocus
               dense
               outlined
               type="email"
@@ -182,11 +180,11 @@ async function getData() {
   //Datayı çekiyoruz
   const data = await getUsers();
   rows.value = data[0].data;
-  console.log(rows);
+  // console.log(rows);
 }
 async function getDetail(id: any) {
   //user detail get
-  console.log(id);
+  // console.log(id);
   $q.notify({
     spinner: true,
     message: 'Please wait...',
@@ -195,12 +193,12 @@ async function getDetail(id: any) {
   modalType.value = 'Update'; //tek modalda kullanmak için modala update yada add olarak state veriyoruz
   const userData: any = await getUserDetail(id);
   userDetail.value = userData[0].data;
-  console.log(userData);
+  // console.log(userData);
   fixed.value = true;
 }
 function deleteval(e: any) {
   //PROPTAN ROW DATASINI ALIYORUZ ID GONDERIYORUZ
-  console.log(e.id);
+  // console.log(e.id);
 
   $q.dialog({
     title: 'Delete User',
@@ -234,7 +232,7 @@ async function addNewUser(data: any) {
 }
 async function updateUserData() {
   const rawUserData: any = { ...userDetail.value }; //DATAYI ALIYORUZ
-  console.log(rawUserData);
+  // console.log(rawUserData);
   if (modalType.value === 'Update') {
     await updateUser(rawUserData.id, rawUserData).then((res: any) => {
       if (res[0].status === 200) {
